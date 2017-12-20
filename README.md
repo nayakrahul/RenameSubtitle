@@ -4,4 +4,4 @@ To load subtitle into a movie, we have to manually do it using the video player 
 This script renames the subtitle as to match with then movie name.
 
 ## Command to run
-```python run.py <movies-master-dir>```
+```python run.py <movies-master-dir-path>```
