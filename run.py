@@ -3,6 +3,7 @@ import sys
 
 
 BOUNDARY = "*" * 50
+rename_count = 0
 
 
 def get_basename(path):
@@ -19,7 +20,7 @@ def get_top_level_dirs(dir):
 
 
 def rename_subtitle(movie_dir):
-    movie_extensions = (".mp4", ".mkv")
+    movie_extensions = (".mp4", ".mkv", ".avi")
     subtitle_extension = ".srt"
     movie_name = None
     subtitle_name = None
@@ -41,6 +42,8 @@ def rename_subtitle(movie_dir):
                 "Renaming from %s to %s" %
                 (get_basename(old_subtitle_name),
                  get_basename(new_subtitle_name)))
+            global rename_count
+            rename_count += 1
         except Exception as e:
             print("Error while renaming : " + str(e))
 
@@ -59,4 +62,5 @@ if __name__ == '__main__':
         print(BOUNDARY)
 
     print("Processed %s movies" % (str(i + 1)))
+    print("Renamed %s subtitles" % (str(rename_count)))
     print(BOUNDARY)
